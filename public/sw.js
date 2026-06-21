@@ -1,4 +1,4 @@
-const CACHE_NAME = "zerotrack-v1";
+const CACHE_NAME = "zerotrack-v2";
 
 // Assets to cache on install for offline shell
 const PRECACHE_ASSETS = ["/", "/manifest.json"];
