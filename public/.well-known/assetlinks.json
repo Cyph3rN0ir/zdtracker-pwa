@@ -2,7 +2,7 @@
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "dev.pages.zsync.twa",
-        "sha256_cert_fingerprints": ["6F:98:B2:E1:BB:90:EB:DA:91:16:C2:7B:B9:CF:79:03:72:3B:2D:8C:C1:E5:12:EA:82:38:D7:12:99:B5:EB:10"]
+        "package_name": "com.zerosync.app",
+        "sha256_cert_fingerprints": ["B7:31:2E:10:BC:A2:43:3C:9F:A9:B8:92:E1:71:6D:AB:FE:09:68:D1:B2:74:D1:60:75:A6:AF:E1:BD:66:22:E4"]
       }
     }]
