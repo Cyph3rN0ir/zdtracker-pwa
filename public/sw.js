@@ -25,46 +25,38 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch: network-first strategy for API/server calls, cache-first for static assets
+// Fetch: network-first strategy for everything to avoid splash screen freezes in TWA
 self.addEventListener("fetch", (event) => {
-  const { request } = event;
-  const url = new URL(request.url);
+  if (event.request.method !== "GET") return;
 
-  // Skip non-GET requests
-  if (request.method !== "GET") return;
-
-  // Skip cross-origin requests
-  if (url.origin !== self.location.origin) return;
-
-  // For navigation requests (HTML pages): network-first
-  if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        // Cache successful responses for later
+        if (response && response.status === 200 && response.type === 'basic') {
           const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          return response;
-        })
-        .catch(() => caches.match(request))
-    );
-    return;
-  }
-
-  // For static assets (JS, CSS, images): cache-first
-  if (
-    url.pathname.startsWith("/assets/") ||
-    url.pathname.startsWith("/icons/")
-  ) {
-    event.respondWith(
-      caches.match(request).then((cached) => {
-        if (cached) return cached;
-        return fetch(request).then((response) => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          return response;
-        });
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone).catch(() => {});
+          });
+        }
+        return response;
       })
-    );
-    return;
-  }
+      .catch(async () => {
+        // Fallback to cache if network fails
+        const cachedResponse = await caches.match(event.request);
+        if (cachedResponse) return cachedResponse;
+        
+        // If it's a navigation request and we're totally offline and not in cache,
+        // return a generic offline response to avoid a hard crash in TWA
+        if (event.request.mode === 'navigate') {
+          return new Response(
+            '<html><body><h1>Offline</h1><p>Please check your internet connection.</p></body></html>',
+            { headers: { 'Content-Type': 'text/html' } }
+          );
+        }
+        
+        // Throwing the error instead of returning undefined prevents the WebView from freezing
+        throw new Error('Network request failed and no cache available');
+      })
+  );
 });

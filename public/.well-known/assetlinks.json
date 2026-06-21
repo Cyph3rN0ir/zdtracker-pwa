@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "dev.pages.zsync.twa",
+        "sha256_cert_fingerprints": ["59:E8:82:D7:14:4C:82:0C:FC:0B:84:58:6E:34:AD:8E:C4:9A:40:FB:4D:31:73:2B:89:9D:F0:BD:1E:2A:17:56"]
+      }
+    }]
