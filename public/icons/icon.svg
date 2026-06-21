@@ -1,11 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#111111"/>
-  <!-- Z lettermark -->
-  <path d="M 128 128 L 384 128 L 128 384 L 384 384" 
-        fill="none" stroke="#ffffff" stroke-width="32" 
-        stroke-linecap="square" stroke-linejoin="miter"/>
-  <!-- Chart uptick on diagonal -->
-  <path d="M 220 275 L 256 220 L 292 265" 
-        fill="none" stroke="#4ade80" stroke-width="18" 
-        stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ace520;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-2" d="M121.68,52.99v86.89h-63.51l-3.9,5.38h73.55V44.59l-6.13,8.4ZM32.33,12.29v105.8l6.13-8.4V17.63h67.25l3.9-5.34H32.33Z"/>
+    <path class="cls-2" d="M127.81,44.59l-6.13,8.4-5.97,8.16v72.75h-53.16l-4.38,5.97-3.9,5.38-4.38,5.97h83.9V36.42l-5.97,8.16ZM26.36,6.32v119.94l5.97-8.16,6.13-8.4,5.97-8.2V23.6h56.94l4.34-5.97,3.9-5.34,4.38-5.97H26.36Z"/>
+  </g>
+  <polygon class="cls-1" points="133.95 6.32 133.95 22.73 133.79 22.93 127.81 31.13 121.68 39.49 115.71 47.69 52.72 133.9 48.38 139.87 44.43 145.25 40.09 151.22 38.98 152.74 26.36 152.74 26.36 139.75 32.33 131.59 38.46 123.19 44.43 115.03 111.21 23.6 115.55 17.63 119.45 12.29 123.83 6.32 133.95 6.32"/>
 </svg>
