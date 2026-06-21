@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "dev.pages.zsync.twa",
-        "sha256_cert_fingerprints": ["59:E8:82:D7:14:4C:82:0C:FC:0B:84:58:6E:34:AD:8E:C4:9A:40:FB:4D:31:73:2B:89:9D:F0:BD:1E:2A:17:56"]
+        "sha256_cert_fingerprints": ["6F:98:B2:E1:BB:90:EB:DA:91:16:C2:7B:B9:CF:79:03:72:3B:2D:8C:C1:E5:12:EA:82:38:D7:12:99:B5:EB:10"]
       }
     }]
